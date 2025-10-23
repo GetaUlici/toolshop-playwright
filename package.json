@@ -1,0 +1,20 @@
+{
+  "name": "toolshop-playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "format": "npx prettier --write .",
+    "test:headless": "npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@faker-js/faker": "^10.1.0",
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.9.1",
+    "path": "^0.12.7",
+    "prettier": "^3.6.2"
+  }
+}
