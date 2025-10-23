@@ -40,7 +40,7 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-     {
+    {
       name: 'setup',
       testMatch: /.*\.setup\.ts/,
     },
@@ -76,7 +76,11 @@ export default defineConfig({
     // },
     {
       name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome', storageState: 'playwright/.auth/user.json'  },
+      use: {
+        ...devices['Desktop Chrome'],
+        channel: 'chrome',
+        storageState: 'playwright/.auth/user.json',
+      },
       dependencies: ['setup'],
     },
   ],

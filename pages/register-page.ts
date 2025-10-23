@@ -1,4 +1,3 @@
-
 import { test, expect, Locator, Page } from '@playwright/test';
 
 export class RegisterPage {
@@ -9,22 +8,20 @@ export class RegisterPage {
   streetField: Locator;
   postalCodeField: Locator;
 
-  
-
   constructor(page: Page) {
     this.page = page;
     this.firstNameField = page.locator('[data-test="first-name"]');
-    this.lastNameField =   page.locator('[data-test="last-name"]');
+    this.lastNameField = page.locator('[data-test="last-name"]');
     this.dobField = page.locator('[data-test="dob"]');
     this.streetField = page.locator('[data-test="street"]');
     this.postalCodeField = page.locator('[data-test="postal_code"]');
   }
 
-//   async doLogin(email: string, password: string) {
-//     await this.emailField.fill(email);
-//     await this.pswField.fill(password);
-//     await this.submitBtn.click();
-//   }
+  //   async doLogin(email: string, password: string) {
+  //     await this.emailField.fill(email);
+  //     await this.pswField.fill(password);
+  //     await this.submitBtn.click();
+  //   }
 }
 
 // await page.locator('[data-test="first-name"]').fill('Geta');

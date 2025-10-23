@@ -1,19 +1,16 @@
 import { test, expect } from '../base';
 import { faker } from '@faker-js/faker';
 
-
 const baseUrl = 'https://practicesoftwaretesting.com/';
 test.describe('API mock examples', () => {
-  
   test('mock products', async ({ page }) => {
- const mockResponse = {
+    const mockResponse = {
       current_page: 1,
       data: [
         {
           id: '01K81CEV8R2X5RMR6HBSSNKBFR',
           name: 'TAI PRODUCT',
-          description:
-            'automated tests',
+          description: 'automated tests',
           price: 10.15,
           is_location_offer: false,
           is_rental: false,
@@ -31,7 +28,7 @@ test.describe('API mock examples', () => {
           },
           category: { id: '01K81CEV7RRGW9GK9DBV2QQ8FV', name: 'Pliers', slug: 'pliers' },
           brand: { id: '01K81CETW65AH35HB1QZWDH2DT', name: 'ForgeFlex Tools' },
-        }
+        },
       ],
       from: 1,
       last_page: 5,
@@ -43,15 +40,14 @@ test.describe('API mock examples', () => {
     await page.route('**/products*', async (route) => {
       await route.fulfill({
         status: 200,
-        body: JSON.stringify(mockResponse)
+        body: JSON.stringify(mockResponse),
       });
     });
 
     await page.goto(`${baseUrl}`);
     // await page.pause()
-    await expect(page.locator('[data-test="product-name"]')).toContainText("TAI PRODUCT")
+    await expect(page.locator('[data-test="product-name"]')).toContainText('TAI PRODUCT');
     // await page.pause()
-    // await expect(page.locator('[data-test="no-results"]')).toBeVisible();    
+    // await expect(page.locator('[data-test="no-results"]')).toBeVisible();
   });
-  
 });

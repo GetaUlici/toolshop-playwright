@@ -5,12 +5,11 @@ export class LoginPage {
   emailField: Locator;
   pswField: Locator;
   submitBtn: Locator;
-  
 
   constructor(page: Page) {
     this.page = page;
     this.emailField = page.locator('[data-test="email"]');
-    this.pswField =  page.locator('[data-test="password"]');
+    this.pswField = page.locator('[data-test="password"]');
     this.submitBtn = page.locator('[data-test="login-submit"]');
   }
 
