@@ -45,9 +45,6 @@ test.describe('API mock examples', () => {
     });
 
     await page.goto(`${baseUrl}`);
-    // await page.pause()
     await expect(page.locator('[data-test="product-name"]')).toContainText('TAI PRODUCT');
-    // await page.pause()
-    // await expect(page.locator('[data-test="no-results"]')).toBeVisible();
   });
 });

@@ -9,8 +9,8 @@ setup('atuhenticate', async ({ page, registerPage, loginPage, navPage }) => {
   // Register flow
   await page.goto(`${baseUrl}/auth/register`);
 
-  await registerPage.firstNameField.fill('Geta');
-  await registerPage.lastNameField.fill('Dow');
+  await registerPage.firstNameField.fill('John');
+  await registerPage.lastNameField.fill('Doe');
   await registerPage.dobField.fill('1990-11-11');
   await registerPage.streetField.fill('street');
   await registerPage.postalCodeField.fill('11111111');
