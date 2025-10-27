@@ -4,13 +4,25 @@
   "main": "index.js",
   "scripts": {
     "format": "npx prettier --write .",
-    "test:headless": "npx playwright test"
+    "test:headless": "npx playwright test",
+    "set-base-images": "npx playwright test --update-snapshots",
+    "test:headed": "npx playwright test --headed",
+    "test:single:thread": "npx playwright test --headed --workers=1",
+    "open:report": "npx playwright show-report",
+    "test:filter-by-tag": "npx playwright test --grep @smoke",
+    "test:project:firefox": "npx playwright test --headed --project firefox",
+    "test:ten:times": "npx playwright test --repeat-each=10",
+    "run:last:failed:tests": "npx playwright test --last-failed",
+    "open:user-interface": "npx playwright test --ui",
+    "open:trace": "npx playwright show-trace test-results/test-1-test-Google-Chrome/trace.zip",
+    "record": "npx playwright codegen https://practicesoftwaretesting.com/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.0",
     "@faker-js/faker": "^10.1.0",
     "@playwright/test": "^1.56.1",
     "@types/node": "^24.9.1",

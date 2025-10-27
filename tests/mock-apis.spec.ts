@@ -1,5 +1,4 @@
 import { test, expect } from '../base';
-import { faker } from '@faker-js/faker';
 
 const baseUrl = 'https://practicesoftwaretesting.com/';
 test.describe('API mock examples', () => {

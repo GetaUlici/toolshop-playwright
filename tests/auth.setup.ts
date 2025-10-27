@@ -1,11 +1,12 @@
-import { faker } from '@faker-js/faker';
 import { expect, test as setup } from '../base.ts';
-import path from 'path';
+
+import path from 'node:path';
 
 const baseUrl = 'https://practicesoftwaretesting.com/';
 const authFile = path.join(__dirname, '../playwright/.auth/user.json');
 
 setup('atuhenticate', async ({ page, registerPage, loginPage, navPage }) => {
+  const { faker } = await import('@faker-js/faker');
   // Register flow
   await page.goto(`${baseUrl}/auth/register`);
 
@@ -14,15 +15,15 @@ setup('atuhenticate', async ({ page, registerPage, loginPage, navPage }) => {
   await registerPage.dobField.fill('1990-11-11');
   await registerPage.streetField.fill('street');
   await registerPage.postalCodeField.fill('11111111');
-  await page.locator('[data-test="city"]').fill('cluj');
-  await page.locator('[data-test="state"]').fill('cluj');
-  await page.locator('[data-test="country"]').selectOption('AT');
-  await page.locator('[data-test="phone"]').fill('1111111');
+  await registerPage.cityField.fill('cluj');
+  await registerPage.stateField.fill('cluj');
+  await registerPage.selectDropdownCountryOption('AT');
+  await registerPage.phoneField.fill('1111111');
   const randomEmail = faker.internet.email();
-  await page.locator('[data-test="email"]').fill(`${randomEmail}`);
+  await registerPage.emailField.fill(`${randomEmail}`);
   console.log(randomEmail);
-  await page.locator('[data-test="password"]').fill('Superpass123*');
-  await page.locator('[data-test="register-submit"]').click();
+  await registerPage.pswField.fill('Superpass123*');
+  await registerPage.submitBtn.click();
   await expect(page.getByRole('heading', { name: 'Login' })).toBeVisible();
 
   //login
